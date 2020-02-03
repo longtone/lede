@@ -1,0 +1,12 @@
+name: C/C++ CI
+
+on: [check_run]
+
+jobs:
+  build:
+
+    runs-on: [ubuntu-16.04]
+    
+    steps:
+    - name: test
+      run: cd config
