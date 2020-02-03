@@ -1,12 +1,22 @@
-name: C/C++ CI
-
-on: [check_run]
-
+name: Hello World
+on: push
 jobs:
-  build:
-
-    runs-on: [ubuntu-16.04]
-    
+  my_first_job:
+    name: My first job
+    runs-on: ubuntu-latest
     steps:
-    - name: test
-      run: cd config
+    - name: checkout
+      uses: actions/checkout@master
+    - name: Run a single-line script
+      run: echo "Hello World!"
+  my_second_job:
+    name: My second job
+    runs-on: macos-latest
+    steps:
+    - name: Run a multi-line script
+      env:
+        MY_VAR: Hello World!
+        MY_NAME: P3TERX
+      run: |
+        echo $MY_VAR
+        echo My name is $MY_NAME
